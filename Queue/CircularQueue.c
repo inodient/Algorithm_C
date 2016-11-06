@@ -47,12 +47,12 @@ int CQ_GetSize( CircularQueue* Queue ){
 }
 
 int CQ_IsEmpty( CircularQueue* Queue ){
-	return ( Queue->Front == Queue->Rear );
+	return Queue->Front == Queue->Rear;
 }
 
 int CQ_IsFull( CircularQueue* Queue ){
 	if( Queue->Front < Queue->Rear ){
-		return ( Queue->Rear - Queue->Front ) == Queue->Capacity;
+		return Queue->Rear - Queue->Front == Queue->Capacity;
 	} else{
 		return Queue->Rear + 1 == Queue->Front;
 	}

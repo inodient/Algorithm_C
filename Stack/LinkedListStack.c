@@ -1,7 +1,7 @@
 #include "LinkedListStack.h"
 
 void LLS_CreateStack( LinkedListStack** Stack ){
-	(*Stack) = (LinkedListStack*)malloc( sizeof( LinkedListStack ) );
+	*Stack = (LinkedListStack*)malloc( sizeof( LinkedListStack ) );
 	(*Stack)->List = NULL;
 	(*Stack)->Top = NULL;
 }
@@ -55,7 +55,7 @@ Node* LLS_Pop( LinkedListStack* Stack ){
 	} else{
 		Node* CurrentTop = Stack->List;
 
-		while( CurrentTop->NextNode != Stack->Top && CurrentTop != NULL ){
+		while( CurrentTop != NULL && CurrentTop->NextNode != Stack->Top ){
 			CurrentTop = CurrentTop->NextNode;
 		}
 
@@ -83,5 +83,5 @@ int LLS_GetSize( LinkedListStack* Stack ){
 }
 
 int LLS_IsEmpty( LinkedListStack* Stack ){
-	return ( Stack->List == NULL );
+	return Stack->List == NULL;
 }

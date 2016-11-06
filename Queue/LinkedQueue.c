@@ -18,7 +18,7 @@ void LQ_DestroyQueue( LinkedQueue* _Queue ){
 
 Node* LQ_CreateNode( char* NewData ){
 	Node* NewNode = (Node*)malloc( sizeof( Node ) );
-	NewNode->Data = (char*)malloc( strlen( NewData ) );
+	NewNode->Data = (char*)malloc( strlen( NewData ) + 1 );
 
 	strcpy( NewNode->Data, NewData );
 	NewNode->NextNode = NULL;
@@ -35,12 +35,12 @@ void LQ_Enqueue( LinkedQueue* Queue, Node* NewNode ){
 	if( Queue->Front == NULL ){
 		Queue->Front = NewNode;
 		Queue->Rear = NewNode;
-		Queue->Count++;
 	} else{
 		Queue->Rear->NextNode = NewNode;
 		Queue->Rear = NewNode;
-		Queue->Count++;
 	}
+
+	Queue->Count++;
 }
 
 Node* LQ_Dequeue( LinkedQueue* Queue ){
@@ -58,6 +58,18 @@ Node* LQ_Dequeue( LinkedQueue* Queue ){
 	return Front;
 }
 
+int LQ_GetSize( LinkedQueue* Queue ){
+	int Count = 0;
+	Node* Current = Queue->Front;
+
+	while( Current != NULL ){
+		Current = Current->NextNode;
+		Count++;
+	}
+
+	return Count;
+}
+
 int LQ_IsEmpty( LinkedQueue* Queue ){
-	return ( Queue->Front == NULL );
+	return Queue->Front == NULL;
 }

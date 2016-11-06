@@ -1,13 +1,22 @@
-/*
- * LCRSTree.h
- *
- *  Created on: Oct 10, 2016
- *      Author: changhokang
- */
+#ifndef LCRS_TREE_H
+#define LCRS_TREE_H
 
-#ifndef LCRSTREE_H_
-#define LCRSTREE_H_
+#include <stdio.h>
+#include <stdlib.h>
 
+typedef char ElementType;
 
+typedef struct tagLCRSNode{
+	struct tagLCRSNode* LeftChild;
+	struct tagLCRSNode* RightSibling;
+	ElementType Data;
+} LCRSNode;
 
-#endif /* LCRSTREE_H_ */
+LCRSNode* LCRS_CreateNode( ElementType Data );
+void LCRS_DestroyNode( LCRSNode* _Node );
+void LCRS_DestroyTree( LCRSNode* _Root );
+
+void LCRS_AppendChildNode( LCRSNode* Parent, LCRSNode* Child );
+void LCRS_PrintTree( LCRSNode* Node, int Depth );
+
+#endif /* LCRS_TREE_H */

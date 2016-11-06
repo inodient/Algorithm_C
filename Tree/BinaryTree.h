@@ -1,13 +1,23 @@
-/*
- * BinaryTree.h
- *
- *  Created on: Oct 10, 2016
- *      Author: changhokang
- */
+#ifndef BINARY_TREE_H
+#define BINARY_TREE_H
 
-#ifndef BINARYTREE_H_
-#define BINARYTREE_H_
+#include <stdio.h>
+#include <stdlib.h>
 
+typedef char ElementType;
 
+typedef struct tagSBTNode{
+	struct tagSBTNode* Left;
+	struct tagSBTNode* Right;
+	ElementType Data;
+} SBTNode;
 
-#endif /* BINARYTREE_H_ */
+SBTNode* SBT_CreateNode( ElementType NewData );
+void SBT_DestroyNode( SBTNode* _Node );
+void SBT_DestroyTree( SBTNode* _Root );
+
+void SBT_PreorderPrintTree( SBTNode* Node );
+void SBT_InorderPrintTree( SBTNode* Node );
+void SBT_PostorderPrintTree( SBTNode* Node );
+
+#endif /* BINARY_TREE_H */

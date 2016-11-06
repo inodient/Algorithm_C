@@ -1,8 +1,7 @@
 #include "ArrayStack.h"
 
 void AS_CreateStack( ArrayStack** Stack, int Capacity ){
-	(*Stack) = (ArrayStack*)malloc( sizeof( ArrayStack ) );
-
+	*Stack = (ArrayStack*)malloc( sizeof( ArrayStack ) );
 	(*Stack)->Capacity = Capacity;
 	(*Stack)->Top = 0;
 	(*Stack)->Nodes = (Node*)malloc( sizeof( Node ) * Capacity );
@@ -21,7 +20,7 @@ void AS_Push( ArrayStack* Stack, ElementType NewData ){
 }
 
 ElementType AS_Pop( ArrayStack* Stack ){
-	int Position = --(Stack->Top);
+	int Position = --Stack->Top;
 
 	return Stack->Nodes[Position].Data;
 }
@@ -37,5 +36,5 @@ int AS_GetSize( ArrayStack* Stack ){
 }
 
 int AS_IsEmpty( ArrayStack* Stack ){
-	return ( Stack->Top == 0 );
+	return Stack->Top == 0;
 }

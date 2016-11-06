@@ -14,7 +14,6 @@ typedef struct tagCircularQueue{
 	int Capacity;
 	int Front;
 	int Rear;
-
 	Node* Nodes;
 } CircularQueue;
 
