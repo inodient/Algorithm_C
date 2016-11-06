@@ -1,48 +1,59 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+
+void Swap( int* A, int* B ){
+	int Temp = *A;
+	*A = *B;
+	*B = Temp;
+}
 
 void BubbleSort( int DataSet[], int Length ){
 	int i = 0;
 	int j = 0;
-	int temp = 0;
 
 	for( i=0; i<Length-1; i++ ){
 		for( j=0; j<Length-(i+1); j++ ){
 			if( DataSet[j] > DataSet[j+1] ){
-				temp = DataSet[j+1];
-				DataSet[j+1] = DataSet[j];
-				DataSet[j] = temp;
+				Swap( &DataSet[j], &DataSet[j+1] );
 			}
 		}
+
+//		<< Algorithm Performance Analyze >>
+//		printf( "%d th : ", i );
+//		for( int k=0; k<6; k++ ){
+//			printf( "%d	", DataSet[k] );
+//		}
+//		printf( "\n" );
 	}
 }
 
 void InsertionSort( int DataSet[], int Length ){
 	int i = 0;
 	int j = 0;
-	int value = 0;
+	int Value = 0;
 
-	for( i=1; i<Length
-	; i++ ){
+	for( i=1; i<Length; i++ ){
 		if( DataSet[i-1] <= DataSet[i] )
 			continue;
 
-		value = DataSet[i];
+		Value = DataSet[i];
 
 		for( j=0; j<i; j++ ){
-			if( DataSet[j] > value ){
-				memmove( &DataSet[j+1], &DataSet[j], sizeof( DataSet[0] ) * ( i-j ) );
-				DataSet[j] = value;
+			if( DataSet[j] > Value ){
+				memmove( &DataSet[j+1], &DataSet[j], sizeof( DataSet[0] ) * ( i - j ) );
+				DataSet[j] = Value;
 				break;
 			}
 		}
-	}
-}
 
-void Swap( int* A, int* B ){
-	int Temp = *A;
-	*A = *B;
-	*B = Temp;
+//		<< Algorithm Performance Anaylze >>
+//		printf( "%d th : ", i );
+//		for( int k=0; k<6; k++ ){
+//			printf( "%d	", DataSet[k] );
+//		}
+//		printf( "\n" );
+	}
 }
 
 int Partition( int DataSet[], int Left, int Right ){
@@ -61,12 +72,22 @@ int Partition( int DataSet[], int Left, int Right ){
 
 		if( Left < Right ){
 			Swap( &DataSet[Left], &DataSet[Right] );
+
+			for( int k=0; k<13; k++ ){
+				printf( "%d	", DataSet[k] );
+			}
+			printf( "\n" );
+
 		} else{
 			break;
 		}
 	}
 
 	Swap( &DataSet[First], &DataSet[Right] );
+	for( int k=0; k<13; k++ ){
+		printf( "%d	", DataSet[k] );
+	}
+	printf( "\n" );
 
 	return Right;
 }
@@ -82,7 +103,8 @@ void QuickSort( int DataSet[], int Left, int Right ){
 
 int main( void ){
 	int i = 0;
-	int DataSet[] = { 5, 1, 6, 4, 2, 3 };
+	//int DataSet[] = { 5, 1, 6, 4, 2, 3 };
+	int DataSet[] = { 8, 3, 1, 2, 2, 2, 1, 0, 9, 3, 3, 1, 4 };
 	int Length = sizeof DataSet / sizeof DataSet[0];
 
 	//BubbleSort( DataSet, Length );
