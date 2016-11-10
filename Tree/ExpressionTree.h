@@ -1,13 +1,27 @@
-/*
- * ExpressionTree.h
- *
- *  Created on: Oct 10, 2016
- *      Author: changhokang
- */
+#ifndef EXPRESSION_TREE_H
+#define EXPRESSION_TREE_H
 
-#ifndef EXPRESSIONTREE_H_
-#define EXPRESSIONTREE_H_
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
+typedef char ElementType;
 
+typedef struct tagETNode{
+	struct tagETNode* Left;
+	struct tagETNode* Right;
+	ElementType Data;
+} ETNode;
 
-#endif /* EXPRESSIONTREE_H_ */
+ETNode* ET_CreateNode( ElementType NewData );
+void ET_DestroyNode( ETNode* _Node );
+void ET_DestroyTree( ETNode* _Root );
+
+void ET_PreorderPrintTree( ETNode* Node );
+void ET_InorderPrintTree( ETNode* Node );
+void ET_PostorderPrintTree( ETNode* Node );
+
+void ET_BuildExpressionTree( char* PostfixExpression, ETNode** Node );
+double ET_Evaluate( ETNode* Tree );
+
+#endif /*EXPRESSION_TREE_H*/

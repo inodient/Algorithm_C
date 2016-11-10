@@ -24,11 +24,11 @@ void LCRS_DestroyTree( LCRSNode* _Root ){
 	_Root->LeftChild = NULL;
 	_Root->RightSibling = NULL;
 
-	LCRS_DestroyNode( _Root );
+	free( _Root );
 }
 
-void LCRS_AppendChildNode( LCRSNode* Parent, LCRSNode* Child ){
-	if( Parent->LeftChild == NULL ){
+void LCRS_AddChildNode( LCRSNode* Parent, LCRSNode* Child ){
+	if( Parent->LeftChild != NULL ){
 		Parent->LeftChild = Child;
 	} else{
 		LCRSNode* CursorNode = Parent->LeftChild;
@@ -41,20 +41,20 @@ void LCRS_AppendChildNode( LCRSNode* Parent, LCRSNode* Child ){
 	}
 }
 
-void LCRS_PrintTree( LCRSNode* Node, int Depth ){
+void LCRS_PrintTree( LCRSNode* Parent, int Depth ){
 	int i = 0;
 
 	for( i=0; i<Depth; i++ ){
 		printf( "	" );
 	}
 
-	printf( "%c\n", Node->Data );
+	printf( "%c\n", Parent->Data );
 
-	if( Node->LeftChild != NULL ){
-		LCRS_PrintTree( Node->LeftChild, Depth + 1 );
+	if( Parent->LeftChild != NULL ){
+		LCRS_PrintTree( Parent->LeftChild, Depth );
 	}
 
-	if( Node->RightSibling != NULL ){
-		LCRS_PrintTree( Node->RightSibling, Depth );
+	if( Parent->RightSibling != NULL ){
+		LCRS_PrintTree( Parent->RightSibling, Depth+1 );
 	}
 }

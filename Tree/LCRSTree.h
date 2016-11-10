@@ -12,11 +12,11 @@ typedef struct tagLCRSNode{
 	ElementType Data;
 } LCRSNode;
 
-LCRSNode* LCRS_CreateNode( ElementType Data );
+LCRSNode* LCRS_CreateNode( ElementType NewData );
 void LCRS_DestroyNode( LCRSNode* _Node );
 void LCRS_DestroyTree( LCRSNode* _Root );
 
-void LCRS_AppendChildNode( LCRSNode* Parent, LCRSNode* Child );
+void LCRS_AddChildNode( LCRSNode* Parent, LCRSNode* Child );
 void LCRS_PrintTree( LCRSNode* Node, int Depth );
 
 #endif /* LCRS_TREE_H */
