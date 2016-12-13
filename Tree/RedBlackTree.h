@@ -1,4 +1,4 @@
-#ifndef REBBLACKTREE_H
+#ifndef REDBLACKTREE_H
 #define REDBLACKTREE_H
 
 #include <stdio.h>
