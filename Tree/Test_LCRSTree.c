@@ -1,6 +1,6 @@
 #include "LCRSTree.h"
 
-int main( void ){
+int Test_LCRSTree( void ){
 	LCRSNode* Root = LCRS_CreateNode( 'A' );
 
 	LCRSNode* B = LCRS_CreateNode( 'B' );

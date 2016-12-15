@@ -1,6 +1,6 @@
 #include "BinarySearchTree.h"
 
-int main( void ){
+int Test_BinarySearchTreeÇ( void ){
 	BSTNode* Tree = BST_CreateNode(123);
 	BSTNode* Node = NULL;
 	
