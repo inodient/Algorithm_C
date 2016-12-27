@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <memory.h>
 
+
 typedef int ElementType;
 
 typedef struct tagHeapNode{

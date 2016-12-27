@@ -1,13 +1,31 @@
-/*
- * PriorityQueue.h
- *
- *  Created on: Oct 10, 2016
- *      Author: changhokang
- */
+#ifndef PRIORITYQUEUE_H
+#define PRIORITYQUEUE_H
 
-#ifndef PRIORITYQUEUE_H_
-#define PRIORITYQUEUE_H_
+#include <stdio.h>
+#include <memory.h>
+#include <stdlib.h>
 
+typedef int PriorityType;
 
+typedef struct tagPQNode{
+	PriorityType Priority;
+	void* Data;
+} PQNode;
 
-#endif /* PRIORITYQUEUE_H_ */
+typedef struct tagPriorityQueue{
+	PQNode* Nodes;
+	int Capacity;
+	int UsedSize;
+} PriorityQueue;
+
+PriorityQueue* PQ_Create( int InitialSize );
+void PQ_Destroy( PriorityQueue* _PQ );
+void PQ_Enqueue( PriorityQueue* PQ, PQNode NewData );
+void PQ_Dequeue( PriorityQueue* PQ, PQNode* Root );
+int PQ_GetParent( int Index );
+int PQ_GetLeftChild( int Index );
+void PQ_SwapNodes( PriorityQueue* PQ, int Index1, int Index2 );
+int PQ_IsEmpty( PriorityQueue* PQ );
+void PQ_PrintNode( PQNode* Node );
+
+#endif
