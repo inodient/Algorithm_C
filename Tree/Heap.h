@@ -1,13 +1,33 @@
-/*
- * Heap.h
- *
- *  Created on: Oct 10, 2016
- *      Author: changhokang
- */
+#ifndef HEAP_H
+#define HEAP_H
 
-#ifndef HEAP_H_
-#define HEAP_H_
+#include <stdio.h>
+#include <stdlib.h>
+#include <memory.h>
 
+typedef int ElementType;
 
+typedef struct tagHeapNode{
+	ElementType Data;
+} HeapNode;
 
-#endif /* HEAP_H_ */
+typedef struct tagHeap{
+	HeapNode* Nodes;
+	int Capacity;
+	int UsedSize;
+} Heap;
+
+Heap* HEAP_Create( int InitialSize );
+void HEAP_Destroy( Heap* _H );
+
+void HEAP_Insert( Heap* H, ElementType NewData );
+void HEAP_DeleteMin( Heap* H, HeapNode* Root );
+
+int HEAP_GetParent( int Index );
+int HEAP_getLeftChlid( int Index );
+
+void HEAP_SwapNodes( Heap* H, int Index1, int Index2 );
+
+void HEAP_PrintNodes( Heap* H );
+
+#endif /* HEAP_H */
