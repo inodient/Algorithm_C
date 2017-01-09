@@ -1,3 +1,5 @@
+/Debug/
+
 
 # Created by https://www.gitignore.io/api/eclipse
 
@@ -16,7 +18,7 @@ local.properties
 .recommenders
 
 # Eclipse Core
-.project
+#.project
 
 # External tool builders
 .externalToolBuilders/
@@ -28,7 +30,7 @@ local.properties
 *.pydevproject
 
 # CDT-specific (C/C++ Development Tooling)
-.cproject
+#.cproject
 
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
@@ -54,4 +56,10 @@ local.properties
 # Code Recommenders
 .recommenders/
 
-# End of https://www.gitignore.io/api/eclipse
+
+
+
+### MinGW Studio ###
+
+# Project
+*.mdsp

@@ -1,1 +1,0 @@
-TotalTest.o: ../TotalTest.c
