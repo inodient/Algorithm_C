@@ -1,0 +1,22 @@
+From cb4921733183869d3d5a78eca65d4535092eb755 Mon Sep 17 00:00:00 2001
+From: Changho Kang <inodient@gmail.com>
+Date: Thu, 12 Jan 2017 15:58:02 +0900
+Subject: [PATCH] test2
+
+---
+ .gitignore | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/.gitignore b/.gitignore
+index 5f2c798..809c186 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,4 +1,5 @@
+ # Created by https://www.gitignore.io/api/eclipse
++# TEST
+ 
+ ### Eclipse ###
+ 
+-- 
+2.10.2.windows.1
+
